@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
+    <style>
+        .kontainer{
+            margin-top: 10%;
+            width: 50%;
+        }
+
+        td{
+            padding: 30px;
+
+        }
+
+        table,td{
+            border: 1px solid white;
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    
+    
+        
+        <div class="number kontainer mx-auto">
+            <table class="mx-auto shadow rounded bg-dark">
+                <tr>
+                    <td colspan="4" class="text-end bg-dark text-white result" id="result"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-end bg-dark text-white temporary" id="temporary"></td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-white" onclick="numbersButton(7)">7</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(8)">8</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(9)">9</td>
+                    <td class="bg-dark text-white" onclick="add()">+</td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-white" onclick="numbersButton(4)">4</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(5)">5</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(6)">6</td>
+                    <td class="bg-dark text-white" onclick="sub()">-</td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-white" onclick="numbersButton(3)">3</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(2)">2</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(1)">1</td>
+                    <td class="bg-dark text-white" onclick="mul()">x</td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-white" onclick="coma()">.</td>
+                    <td class="bg-dark text-white" onclick="numbersButton(0)">0</td>
+                    <td class="bg-dark text-white" onclick="count()">=</td>
+                    <td class="bg-dark text-white" onclick="div()">/</td>
+                </tr>
+            </table>
+
+            <button class="btn btn-dark" onclick="dlte()">delete</button>
+
+        </div>
+
+<script>
+
+    function numbersButton(number) {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = `${temporary}${number}`;
+        document.getElementById("temporary").innerHTML = temporary;
+    };
+
+    function add() {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = `${temporary}+`;
+        document.getElementById("temporary").innerHTML = temporary;
+    }
+
+    function sub() {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = `${temporary}-`;
+        document.getElementById("temporary").innerHTML = temporary;
+    }
+
+    function mul() {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = `${temporary}*`;
+        document.getElementById("temporary").innerHTML = temporary;
+    }
+
+    function div() {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = `${temporary}/`;
+        document.getElementById("temporary").innerHTML = temporary;
+    }
+
+    function coma() {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = `${temporary}.`;
+        document.getElementById("temporary").innerHTML = temporary;
+    }
+
+    function dlte() {
+        let temporary = document.getElementById('temporary').innerHTML;
+        temporary = '';
+        document.getElementById("temporary").innerHTML = temporary;
+    }
+
+
+
+function count() {
+    let temporary = document.getElementById('temporary').innerHTML;
+    document.getElementById("result").innerHTML = eval(temporary);
+    document.getElementById('temporary').innerHTML ="";
+
+}
+
+
+</script>
+</body>
+</html>
