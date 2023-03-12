@@ -8,118 +8,212 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 
     <style>
-        .kontainer{
-            margin-top: 10%;
-            width: 50%;
-        }
+        .neonText {
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #0fa,
+                0 0 82px #0fa,
+                0 0 92px #0fa,
+                0 0 102px #0fa,
+                0 0 151px #0fa;
+            }
 
-        td{
-            padding: 30px;
-
-        }
-
-        table,td{
-            border: 1px solid white;
-        }
+        .boxShadow{
         
+            box-shadow: 
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #BF40BF,
+                0 0 52px #BF40BF;
+        }
+
+        .boxShadow1{
+        
+        box-shadow: 
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #BF40BF;
+            
+    }
+
+    #result{
+        font-size: 20px;
+    }
+
+        main{
+            width: 300px;
+            margin-top: 90px;
+            border: 2pz solid #BF40BF;
+        }
+
+        .result{
+            width: 100%;
+            height: 50px;
+            border: 1px solid whitesmoke;
+        }
+
+        .batas{
+            border-bottom: 1px solid whitesmoke;
+        }
+    
+       td{
+        color: whitesmoke;
+        border: 1px solid gray;
+        text-align: center;
+        margin: 10px;
+        padding-top: 20px ;
+        padding-bottom: 20px;
+        cursor: pointer;
+        font-size: 20px;
+       }
+
+       .clock{
+        width: 200px;
+        height: 50px;
+        font-size: 30px;
+       }
+      
 
     </style>
 
 </head>
-<body>
+<body class="bg-black">
     
-    
+    <div class="border clock text-center rounded boxShadow position-absolute top-0 start-0 ms-4 mt-5">
+        <div onload="showTime()" class="neonText" id="MyClockDisplay">wd</div>
+    </div>
         
-        <div class="number kontainer mx-auto">
-            <table class="mx-auto shadow rounded bg-dark">
-                <tr>
-                    <td colspan="4" class="text-end bg-dark text-white result" id="result"></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="text-end bg-dark text-white temporary" id="temporary"></td>
-                </tr>
-                <tr>
-                    <td class="bg-dark text-white" onclick="numbersButton(7)">7</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(8)">8</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(9)">9</td>
-                    <td class="bg-dark text-white" onclick="add()">+</td>
-                </tr>
-                <tr>
-                    <td class="bg-dark text-white" onclick="numbersButton(4)">4</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(5)">5</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(6)">6</td>
-                    <td class="bg-dark text-white" onclick="sub()">-</td>
-                </tr>
-                <tr>
-                    <td class="bg-dark text-white" onclick="numbersButton(3)">3</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(2)">2</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(1)">1</td>
-                    <td class="bg-dark text-white" onclick="mul()">x</td>
-                </tr>
-                <tr>
-                    <td class="bg-dark text-white" onclick="coma()">.</td>
-                    <td class="bg-dark text-white" onclick="numbersButton(0)">0</td>
-                    <td class="bg-dark text-white" onclick="count()">=</td>
-                    <td class="bg-dark text-white" onclick="div()">/</td>
-                </tr>
-            </table>
-
-            <button class="btn btn-dark" onclick="dlte()">delete</button>
-
+    <main class="mx-auto rounded boxShadow">
+        <div class="batas p-3">
+            <div class="result boxShadow1 rounded neonText text-end p-1 pt-2 " id="result"></div>
         </div>
+    
+        <div>
+            <table style="width: 100%;" cellpadding = "10" cellspacing = "10">
+               <tr>
+                    <td class="neonText" onclick="dlte()">ac</td>
+                    <td class="neonText">%</td>
+                    <td class="neonText" onclick="mul()">x</td>
+                    <td class="neonText" onclick="div()">/</td>
+               </tr>
+                
+               <tr>
+                    <td class="neonText" onclick="numbersButton(7)">7</td>
+                    <td class="neonText" onclick="numbersButton(8)">8</td>
+                    <td class="neonText" onclick="numbersButton(9)">9</td>
+                    <td class="neonText">-</td>
+                </tr>
+
+                <tr>
+                    <td class="neonText" onclick="numbersButton(4)">4</td>
+                    <td class="neonText" onclick="numbersButton(5)">5</td>
+                    <td class="neonText" onclick="numbersButton(6)">6</td>
+                    <td class="neonText" onclick="add()">+</td>
+               </tr>
+               <tr>
+                    <td class="neonText" onclick="numbersButton(1)">1</td>
+                    <td class="neonText" onclick="numbersButton(2)">2</td>
+                    <td class="neonText" onclick="numbersButton(3)">3</td>
+                    <td rowspan="2" class="neonText" onclick="count()">=</td>
+                </tr>
+                <tr>
+                    <td class="neonText" onclick="numbersButton(0)">0</td>
+                    <td class="neonText" onclick="coma()">.</td>
+                    <td class="neonText">+/-</td>
+               </tr>
+            </table>
+        </div>
+        
+    </main>
 
 <script>
 
     function numbersButton(number) {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = `${temporary}${number}`;
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     };
 
     function add() {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = `${temporary}+`;
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     }
 
     function sub() {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = `${temporary}-`;
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     }
 
     function mul() {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = `${temporary}*`;
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     }
 
     function div() {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = `${temporary}/`;
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     }
 
     function coma() {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = `${temporary}.`;
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     }
 
     function dlte() {
-        let temporary = document.getElementById('temporary').innerHTML;
+        let temporary = document.getElementById('result').innerHTML;
         temporary = '';
-        document.getElementById("temporary").innerHTML = temporary;
+        document.getElementById("result").innerHTML = temporary;
     }
 
 
 
-function count() {
-    let temporary = document.getElementById('temporary').innerHTML;
-    document.getElementById("result").innerHTML = eval(temporary);
-    document.getElementById('temporary').innerHTML ="";
+    function count() {
+        let temporary = document.getElementById('result').innerHTML;
+        document.getElementById("result").innerHTML = eval(temporary);
 
+    }
+
+
+
+    // for clock 
+    function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
 }
+
+showTime();
 
 
 </script>
