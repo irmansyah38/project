@@ -16,20 +16,23 @@ class EtiketController extends Controller
         if (Auth::check()) {
             $name = Auth::user()->name;
             $id = Auth::user()->id;
-            $barcodes = Barcode::where('user_id', $id)->get()->toArray();
+            $barcodes = Barcode::where([
+                'user_id' => $id,
+                'status' => 'paid'
+            ])->get()->toArray();
         }
 
-        return view("user.tiket", [
-            "title" => "E-Tiket",
-            "name" => $name,
-            "barcodes" => $barcodes
-        ]);
+        var_dump($barcodes);
+
+        // return view("user.tiket", [
+        //     "title" => "E-Tiket",
+        //     "name" => $name,
+        //     "barcodes" => $barcodes
+        // ]);
     }
 
     public function beli(Request $request)
     {
-        // get from form
-        $data = request()->all();
 
         // get user id
         $user_id = Auth::user()->id;

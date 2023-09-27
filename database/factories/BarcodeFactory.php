@@ -17,9 +17,11 @@ class BarcodeFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->randomNumber(9, true),
+            'id' => fake()->ean13(),
             'user_id' => fake()->numberBetween(1, 150),
             'jumlah_orang' => fake()->numberBetween(1, 30),
+            'status' => 'paid',
+            'order_id' => fake()->randomNumber(9)
         ];
     }
 }

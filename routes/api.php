@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransaksiController;
+
+use App\Http\Controllers\Api\BarcodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/barcode', App\Http\Controllers\Api\BarcodeController::class);
-Route::get('/barcode/delete/{id}', [App\Http\Controllers\Api\BarcodeController::class, 'destroy']);
+Route::apiResource('/barcode', BarcodeController::class);
+Route::get('/barcode/delete/{id}', [BarcodeController::class, 'destroy']);
+
+Route::post('/midtrans-callback', [TransaksiController::class, 'callback']);

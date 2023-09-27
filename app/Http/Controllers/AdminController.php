@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DaftarTransaksi;
+use App\Models\Transaksi;
 use App\Models\Barcode;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,13 +12,13 @@ class AdminController extends Controller
     {
         $mydate = getdate(date("U"));
 
-        $dataTahun = DaftarTransaksi::where([
-            'status' => 1,
+        $dataTahun = Transaksi::where([
+            'status' => "paid",
             'tahun' => $mydate['year']
         ])->get();
 
-        $dataBulan = DaftarTransaksi::where([
-            'status' => 1,
+        $dataBulan = Transaksi::where([
+            'status' => "paid",
             'tahun' => $mydate['year'],
             'bulan' => $mydate['mon']
         ])->get();
@@ -27,16 +27,17 @@ class AdminController extends Controller
         $dataChartTahun = [];
         for ($i = 1; $i <= 12; $i++) {
             $dataChartTahun[] = [
-                'y' => $dataTahun->where('bulan', $i)->sum('jumlah_orang'),
+                'y' => $dataTahun->where('bulan', $i)->sum('qty'),
                 'label' => date("F", mktime(0, 0, 0, $i, 1, 2000))
             ];
         }
+
 
         // data penjualan perbulan
         $dataChartBulan = [];
         for ($i = 1; $i <= 30; $i++) {
             $dataChartBulan[] = [
-                'y' => $dataBulan->where('hari', $i)->sum('jumlah_orang'),
+                'y' => $dataBulan->where('hari', $i)->sum('qty'),
                 'label' => $i
             ];
         }

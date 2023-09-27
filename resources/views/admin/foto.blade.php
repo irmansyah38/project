@@ -49,6 +49,13 @@
 
                                 </div>
                             @endif
+                            @if (session()->has('errorDelete'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                    <strong>{{ session('successDelete') }}</strong>
+                                </div>
+                            @endif
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -62,9 +69,20 @@
                                             <td class="text-center"><img src="curug/{{ $image['nama'] }}"
                                                     style="width: 200px; height: 150px;">
                                             </td>
-                                            <td><a href="/foto-curug/{{ $image->id }}"
+                                            {{-- <td><a href="/foto-curug/{{ $image->id }}"
                                                     onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"
-                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td> --}}
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('foto-curug.destroy', $image['id']) }}">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"><i
+                                                            class="fa fa-trash"></i></button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
 

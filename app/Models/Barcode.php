@@ -10,7 +10,7 @@ class Barcode extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'user_id', 'jumlah_orang'];
+    protected $fillable = ['id', 'user_id', 'status', 'order_id', 'jumlah_orang'];
     // protected $guarded = ['id'];
 
     public function user()

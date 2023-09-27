@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barcodes', function (Blueprint $table) {
+        Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id");
-            $table->integer('order_id')->unique();
+            $table->foreignId('user_id');
+            $table->string('name');
+            $table->integer('hari');
+            $table->integer('bulan');
+            $table->integer('tahun');
+            $table->string('phone');
+            $table->integer('qty');
+            $table->bigInteger('total_price');
             $table->enum('status', ['unpaid', 'paid']);
-            $table->integer('jumlah_orang');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barcodes');
+        Schema::dropIfExists('transaksis');
     }
 };

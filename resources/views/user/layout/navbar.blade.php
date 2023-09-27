@@ -8,17 +8,11 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                @auth
-                    <li class="text-white nav-link scrollto">
-                        Selamat Datang {{ $name }}
-                    </li>
-                @else
-                @endauth
+                <li><a class="nav-link scrollto" href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="/E-Tiket">E-Tiket</a></li>
                 <li><a class="nav-link scrollto " href="https://app.doku.com/retail/merchant/CurugCikonengUMKM"
                         target="__blank">Makanan & Souvenir</a></li>
                 @auth
-
                     <li>
                         <form action="/logout" method="post" class="nav-link scrollto">
                             @csrf

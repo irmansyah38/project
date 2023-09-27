@@ -42,6 +42,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         FAQ
                     </a>
+                    <a class="nav-link" href="/harga">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Harga
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">

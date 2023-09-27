@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class FotoController extends Controller
 {
@@ -56,34 +58,33 @@ class FotoController extends Controller
 
 
 
-    public function destroy($id)
+    public function destroy(Foto $foto)
     {
         // Temukan foto berdasarkan ID
-        $foto = Foto::find($id);
+        $foto = Foto::find($foto);
 
-        // Periksa apakah foto tersebut ada
-        if (!$foto) {
-            return back()->with('error', 'Foto tidak ditemukan');
-        }
-
-        // Dapatkan nama file dari model Foto
-        $namaFile = $foto->nama;
-
-        // Tentukan lokasi file
-        $lokasi = public_path('curug/') . $namaFile;
-        var_dump($lokasi);
-        // Periksa apakah file tersebut ada
-        if (file_exists($lokasi)) {
-            // Hapus file dari penyimpanan
-            if (Storage::disk('public')->delete('curug/' . $namaFile)) {
-                // Hapus catatan Foto yang sesuai dari database
+        if (isset($foto)) {
+            $deletedFile = File::delete(public_path('curug') . "\\" . $foto->nama);
+            if ($deletedFile == null) {
                 $foto->delete();
                 return back()->with('successDelete', 'Foto berhasil dihapus');
             } else {
-                return back()->with('error', 'Gagal menghapus file');
+                return back()->with('errorDelete', 'Gagal menghapus file');
             }
         } else {
-            return back()->with('error', 'File tidak ditemukan');
+            return back()->with('errorDelete', 'Tidak ada File di database');
         }
+
+        // $deletedFile = File::delete(public_path('curug') . "\\" . $foto->nama);
+        // if ($deletedFile == null) {
+        //     $foto->delete();
+        //     return redirect('foto-curug')->with('successDelete', 'Foto berhasil dihapus');
+        //     // return back()->with('successDelete', 'Foto berhasil dihapus');
+        // } else {
+        //     return back()->with('errorDelete', 'Gagal menghapus file');
+        // }
+
+        // $deletedFile = File::delete($lokasi . "\\" . $foto->nama);
+
     }
 }

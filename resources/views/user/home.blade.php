@@ -4,10 +4,15 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container">
+            @auth
+                <h3 style="font-size: 1.3rem;">Hi <strong>{{ $data->name }}</strong></h3>
+                <a href="/E-Tiket" class="btn-get-started scrollto">Beli Tiket</a>
+                <br>
+            @else
+            @endauth
             <h3>Welcome to <strong>Curug Cikoneng</strong></h3>
             <!-- <h1>We're Creative Agency</h1>
-                                                    <h2>We are team of talented designers making websites with Bootstrap</h2> -->
-            <a href="/E-Tiket" class="btn-get-started scrollto">Beli Tiket</a>
+                 <h2>We are team of talented designers making websites with Bootstrap</h2> -->
         </div>
     </section><!-- End Hero -->
 
@@ -28,7 +33,6 @@
                             {!! $paragraf[0]['paragraf'] !!}
                         </div>
                         <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
-                            {!! $paragraf[1]['paragraf'] !!}
                         </div>
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
@@ -41,23 +45,6 @@
 
             </div>
         </section><!-- End About Section -->
-
-
-
-
-
-        <!-- ======= Cta Section ======= -->
-        {{-- <section id="cta" class="cta">
-      <div class="container"> --}}
-
-        {{-- <div class="text-center"> --}}
-        {{-- <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a> --}}
-        {{-- </div> --}}
-
-        {{-- </div> --}}
-        {{-- </section><!-- End Cta Section --> --}}
 
         <!-- ======= Portfolio Section ======= -->
         <section id="portfolio" class="portfolio">
