@@ -25,7 +25,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <div style="width: 400px; height: 200px;" class="overflow-hidden mx-auto">
+                                        <div style="max-width: 400px; height: 200px;" class="overflow-hidden mx-auto">
                                             {!! $paragraf['paragraf'] !!}
                                         </div>
                                     </td>

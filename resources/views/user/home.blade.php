@@ -6,13 +6,15 @@
         <div class="hero-container">
             @auth
                 <h3 style="font-size: 1.3rem;">Hi <strong>{{ $data->name }}</strong></h3>
-                <a href="/E-Tiket" class="btn-get-started scrollto">Beli Tiket</a>
-                <br>
             @else
             @endauth
             <h3>Welcome to <strong>Curug Cikoneng</strong></h3>
+            @auth
+                <br>
+                <a href="/E-Tiket" class="btn-get-started scrollto">Beli Tiket</a>
+            @endauth
             <!-- <h1>We're Creative Agency</h1>
-                 <h2>We are team of talented designers making websites with Bootstrap</h2> -->
+                                 <h2>We are team of talented designers making websites with Bootstrap</h2> -->
         </div>
     </section><!-- End Hero -->
 

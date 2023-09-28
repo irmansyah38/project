@@ -12,16 +12,14 @@
                     </div>
                 @endif
                 <a class="btn btn-primary" href="/FAQ/new" role="button">Buat Baru</a>
-                <div class="w-100 mx-auto ">
+                <div class="table-responsive w-100">
                     <table class="table table-hover">
                         <thead>
                             <tr class="text-center">
                                 <th scope="col ">No</th>
                                 <th scope="col ">Pertanyaan</th>
                                 <th scope="col ">Jawaban</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Hapus</th>
-
+                                <th scope="col">Edit & Hapus</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
@@ -30,21 +28,20 @@
                                 <tr>
                                     <td class="text-center">{{ $i }}</td>
                                     <td>
-                                        <div style="width: 300px; height: 150px;" class="overflow-hidden mx-auto">
+                                        <div style="max-width: 300px; height: 150px;" class="overflow-hidden mx-auto">
                                             {{ $faq['question'] }}
                                         </div>
                                     </td>
                                     <td>
-                                        <div style="width: 300px; height: 150px;" class="overflow-hidden mx-auto">
+                                        <div style="max-width: 300px; height: 150px;" class="overflow-hidden mx-auto">
                                             {!! $faq['answer'] !!}
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <a href="/FAQ/{{ $faq['id'] }}"class="btn btn-warning">Edit</a>
-                                    </td>
-                                    <td class="text-center">
+                                        <a href="/FAQ/{{ $faq['id'] }}"class="btn btn-warning mb-2">Edit</a>
                                         <a href="/FAQ/delete/{{ $faq['id'] }}"class="btn btn-danger">Hapus</a>
                                     </td>
+
                                 </tr>
                                 <?php $i++; ?>
                             @endforeach

@@ -58,14 +58,14 @@ class FotoController extends Controller
 
 
 
-    public function destroy(Foto $foto)
+    public function destroy($id)
     {
         // Temukan foto berdasarkan ID
-        $foto = Foto::find($foto);
+        $foto = Foto::find($id);
 
         if (isset($foto)) {
             $deletedFile = File::delete(public_path('curug') . "\\" . $foto->nama);
-            if ($deletedFile == null) {
+            if ($deletedFile == true) {
                 $foto->delete();
                 return back()->with('successDelete', 'Foto berhasil dihapus');
             } else {

@@ -34,7 +34,7 @@
                                 <input type="file" class="form-control" name="image" id="image" placeholder=""
                                     aria-describedby="fileHelpId">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
 
                     </div>
@@ -53,7 +53,7 @@
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
-                                    <strong>{{ session('successDelete') }}</strong>
+                                    <strong>{{ session('errorDelete') }}</strong>
                                 </div>
                             @endif
                             <table class="table">
@@ -69,11 +69,11 @@
                                             <td class="text-center"><img src="curug/{{ $image['nama'] }}"
                                                     style="width: 200px; height: 150px;">
                                             </td>
-                                            {{-- <td><a href="/foto-curug/{{ $image->id }}"
+                                            <td><a href="/foto-curug/{{ $image->id }}"
                                                     onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"
                                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                            </td> --}}
-                                            <td>
+                                            </td>
+                                            {{-- <td>
                                                 <form method="post"
                                                     action="{{ route('foto-curug.destroy', $image['id']) }}">
                                                     @method('delete')
@@ -82,7 +82,7 @@
                                                         onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"><i
                                                             class="fa fa-trash"></i></button>
                                                 </form>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
 

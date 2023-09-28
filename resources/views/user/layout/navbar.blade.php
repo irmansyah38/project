@@ -11,12 +11,13 @@
                 <li><a class="nav-link scrollto" href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="/E-Tiket">E-Tiket</a></li>
                 <li><a class="nav-link scrollto " href="https://app.doku.com/retail/merchant/CurugCikonengUMKM"
-                        target="__blank">Makanan & Souvenir</a></li>
+                        target="__blank">Makanan &
+                        Souvenir</a></li>
                 @auth
                     <li>
                         <form action="/logout" method="post" class="nav-link scrollto">
                             @csrf
-                            <button type="submit" class="btn btn-danger">Logout</button>
+                            <button type="submit" class="btn btn-danger ms-3">Logout</button>
                         </form>
                     </li>
                 @else

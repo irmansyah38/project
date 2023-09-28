@@ -24,7 +24,7 @@
                     <div class="col-lg-8 entries" style="min-height: 400px;">
                         <div class="w-75">
                             <h2 class="mb-4">Pembelian Tiket</h2>
-                            <p>Harga Tiket Rp. {{ $harga }}</p>
+                            <p>Harga Tiket <strong>Rp. {{ $harga }}</strong></p>
                             @auth
                                 <form action="/E-Tiket" method="post">
                                     @csrf

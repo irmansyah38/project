@@ -60,8 +60,8 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware('role:A');
 
 Route::get('/foto-curug', [FotoController::class, 'index'])->middleware('role:A');
 Route::post('/foto-curug', [FotoController::class, 'store'])->middleware('role:A');
-// Route::get('/foto-curug/{id}', [FotoController::class, 'destroy'])->middleware('role:A');
-Route::resource('/foto-curug', FotoController::class);
+Route::get('/foto-curug/{id}', [FotoController::class, 'destroy'])->middleware('role:A');
+// Route::resource('/foto-curug', FotoController::class);
 
 Route::get('/paragraf', [ParagrafController::class, 'index'])->middleware('role:A');
 Route::post('/paragraf', [ParagrafController::class, 'update'])->middleware('role:A');

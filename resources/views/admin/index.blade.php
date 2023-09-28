@@ -45,7 +45,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-chart-area me-1"></i>
-                            Grafik penjualan tiket / Tahun
+                            Grafik penjualan tiket {{ $date['year'] }}
                         </div>
                         <div class="card-body p-1">
                             <div id="chartTahun" style="height: 370px; width: 100%;"></div>
@@ -56,7 +56,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-chart-area me-1"></i>
-                            Grafik penjualan tiket bulan lalu
+                            Grafik penjualan tiket bulan {{ $date['month'] }}
                         </div>
                         <div class="card-body p-1">
                             <div id="chartBulan" style="height: 370px; width: 100%;"></div>

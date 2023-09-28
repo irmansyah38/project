@@ -51,7 +51,8 @@ class AdminController extends Controller
             'nama' => Auth::user()->name,
             'dataChartTahun' => $dataChartTahun,
             'dataChartBulan' => $dataChartBulan,
-            'dataBarcodes'   => $dataBarcodes
+            'dataBarcodes'   => $dataBarcodes,
+            "date"           => $mydate
         ]);
     }
 }
