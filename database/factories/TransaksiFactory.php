@@ -20,6 +20,7 @@ class TransaksiFactory extends Factory
         $jumlah_orang = fake()->numberBetween(1, 100);
         $harga *= $jumlah_orang;
         return [
+            'order_id' => fake()->unique()->numberBetween(0, 100) . "-" . date('Y-m-d-H:i:s'),
             'user_id' => fake()->numberBetween(0, 100),
             'total_price' => $harga,
             'qty' => $jumlah_orang,

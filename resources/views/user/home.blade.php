@@ -14,7 +14,7 @@
                 <a href="/E-Tiket" class="btn-get-started scrollto">Beli Tiket</a>
             @endauth
             <!-- <h1>We're Creative Agency</h1>
-                                 <h2>We are team of talented designers making websites with Bootstrap</h2> -->
+                                                         <h2>We are team of talented designers making websites with Bootstrap</h2> -->
         </div>
     </section><!-- End Hero -->
 
@@ -70,13 +70,14 @@
                 <div class="row portfolio-container">
 
                     @foreach ($images as $image)
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $image['kategori'] }}">
-                            <img src="/curug/{{ $image['nama'] }}" alt="" width="400px" height="300px">
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $image->kategori }}">
+                            <img src="{{ asset('storage/images') . '/' . $image->nama }}" alt="" width="400px"
+                                height="300px">
                             <div class="portfolio-info">
-                                <h4>{{ $image['kategori'] }}</h4>
-                                {{-- <p>App</p> --}}
-                                <a href="/curug/{{ $image['nama'] }}" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="{{ $image['kategori'] }}"><i
+                                <h4>{{ $image->kategori }}</h4>
+                                <p>{{ $image->kategori }}</p>
+                                <a href="{{ asset('storage/images') . '/' . $image->nama }}" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="{{ $image->kategori }}"><i
                                         class="bx bx-plus"></i></a>
                             </div>
                         </div>

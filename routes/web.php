@@ -28,6 +28,7 @@ use App\Http\Controllers\HargaController;
 
 Route::get('/', function () {
 
+
     return view('user.home', [
         'title' => "Home",
         "data" => Auth::user(),

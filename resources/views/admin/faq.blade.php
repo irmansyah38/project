@@ -38,8 +38,10 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <a href="/FAQ/{{ $faq['id'] }}"class="btn btn-warning mb-2">Edit</a>
-                                        <a href="/FAQ/delete/{{ $faq['id'] }}"class="btn btn-danger">Hapus</a>
+                                        <a href="/FAQ/{{ $faq['id'] }}"class="btn btn-warning"><i
+                                                class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="/FAQ/delete/{{ $faq['id'] }}"class="btn btn-danger"><i
+                                                class="fa fa-trash"></i></a>
                                     </td>
 
                                 </tr>

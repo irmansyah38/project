@@ -12,14 +12,16 @@ class AdminController extends Controller
     {
         $mydate = getdate(date("U"));
 
-        $dataTahun = Transaksi::where([
+        $data = Transaksi::where([
+            'status' => "paid",
+        ]);
+
+        $dataTahun = $data->where([
             'status' => "paid",
             'tahun' => $mydate['year']
         ])->get();
 
-        $dataBulan = Transaksi::where([
-            'status' => "paid",
-            'tahun' => $mydate['year'],
+        $dataBulan = $data->where([
             'bulan' => $mydate['mon']
         ])->get();
 
@@ -43,16 +45,22 @@ class AdminController extends Controller
         }
 
         // data Barcode yang tersedia
+        $dataBarcodes = Barcode::where("status", 'paid')->paginate(20);
 
-        $dataBarcodes = Barcode::latest()->paginate(20);
-
+        // pemeblian tiket hari ini
+        $transaksis = $data->where([
+            'hari' => $mydate['mday'],
+            "bulan" => $mydate['mon'],
+            'tahun' => $mydate['year'],
+        ])->orderBy('created_at', 'desc')->paginate(20);
 
         return view('admin.index', [
             'nama' => Auth::user()->name,
             'dataChartTahun' => $dataChartTahun,
             'dataChartBulan' => $dataChartBulan,
             'dataBarcodes'   => $dataBarcodes,
-            "date"           => $mydate
+            "date"           => $mydate,
+            "transaksis"      => $transaksis
         ]);
     }
 }

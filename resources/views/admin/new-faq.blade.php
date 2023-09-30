@@ -9,12 +9,22 @@
                         @csrf
                         <div class="mb-3">
                             <label for="question" class="form-label">Question</label>
-                            <textarea class="form-control" name="question" id="question" rows="3"></textarea>
+                            <textarea class="form-control @error('question') is-invalid @enderror" name="question" id="question" rows="3"></textarea>
+                            @error('question')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="answer" class="form-label">Answer</label>
-                            <textarea id="editor" class="form-control" name="answer" id="answer"></textarea>
+                            <textarea id="editor" class="form-control  @error('answer') is-invalid @enderror" name="answer" id="answer"></textarea>
+                            @error('answer')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>

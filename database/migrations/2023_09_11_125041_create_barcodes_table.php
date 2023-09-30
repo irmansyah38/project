@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id");
-            $table->integer('order_id')->unique();
+            $table->string('order_id')->unique();
             $table->enum('status', ['unpaid', 'paid']);
             $table->integer('jumlah_orang');
             $table->timestamps();

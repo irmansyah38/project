@@ -17,23 +17,33 @@
                         <form action="/foto-curug" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-
                                 <label for="kategori" class="form-label">Kategori</label>
                                 <br>
                                 <small id="helpId" class="form-text text-muted">Pilih salah satu</small>
-                                <select class="form-select form-select-lg" name="kategori" id="kategori" required>
+                                <select class="form-select form-select-lg @error('kategori') is-invalid @enderror"
+                                    name="kategori" id="kategori" required>
+                                    <option value="">Pilih Salah Satu</option>
                                     <option value="curug">Curug</option>
                                     <option value="fasilitas">Fasilitas</option>
                                 </select>
+                                @error('kategori')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
-
-
 
                             <div class="mb-3">
                                 <label for="image" class="form-label">Choose file</label>
-                                <input type="file" class="form-control" name="image" id="image" placeholder=""
-                                    aria-describedby="fileHelpId">
+                                <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                    name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                @error('image')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
+
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
 
@@ -66,23 +76,15 @@
                                 <tbody>
                                     @foreach ($images as $image)
                                         <tr class="">
-                                            <td class="text-center"><img src="curug/{{ $image['nama'] }}"
+                                            <td class="text-center"><img
+                                                    src="{{ asset('storage/images') . '/' . $image['nama'] }}"
                                                     style="width: 200px; height: 150px;">
                                             </td>
                                             <td><a href="/foto-curug/{{ $image->id }}"
                                                     onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"
                                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </td>
-                                            {{-- <td>
-                                                <form method="post"
-                                                    action="{{ route('foto-curug.destroy', $image['id']) }}">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"><i
-                                                            class="fa fa-trash"></i></button>
-                                                </form>
-                                            </td> --}}
+
                                         </tr>
                                     @endforeach
 

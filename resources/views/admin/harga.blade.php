@@ -19,9 +19,15 @@
                                 <form action="/harga" method="post">
                                     @csrf
                                     <div class="mb-3">
-                                        <input type="number" class="form-control w-75 border border-3" name="harga"
-                                            id="harga" aria-describedby="helpId" placeholder="" required
+                                        <input type="number"
+                                            class="form-control w-75 border border-3 @error('harga') is-invalid @enderror"
+                                            name="harga" id="harga" aria-describedby="helpId" placeholder="" required
                                             value="{{ $harga->harga }}">
+                                        @error('harga')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <button type="submit" class="btn btn-primary">Ubah</button>
                                 </form>

@@ -29,8 +29,10 @@
                                             {!! $paragraf['paragraf'] !!}
                                         </div>
                                     </td>
-                                    <td class="text-center"><a href="/paragraf/{{ $paragraf['id'] }}"
-                                            class="btn btn-warning">Edit</a></td>
+                                    <td class="text-center">
+                                        <a href="/paragraf/{{ $paragraf['id'] }}" class="btn btn-warning"><i
+                                                class="fa-solid fa-pen-to-square"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -33,9 +33,15 @@
                                     <input type="text" name="phone" value="{{ $data->nomor }}" hidden>
                                     <div class="mb-3">
                                         <label for="qty" class="form-label">Jumlah orang dalam satu qrcode</label>
-                                        <input type="number" class="form-control border border-2 w-75" name="qty"
-                                            id="qty" aria-describedby="helpId" placeholder="minimal 1 dan maksimal 30"
-                                            min="1" max="30" required>
+                                        <input type="number"
+                                            class="form-control border border-2 w-75  @error('qty') is-invalid @enderror"
+                                            name="qty" id="qty" aria-describedby="helpId"
+                                            placeholder="minimal 1 dan maksimal 30" min="1" max="30" required>
+                                        @error('qty')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
 
                                     <button type="submit" class="btn d-inline-block text-white"

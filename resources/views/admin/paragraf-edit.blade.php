@@ -24,7 +24,13 @@
                     <input type="number" class="form-control" name="id" id="id" value="{{ $paragraf->id }}"
                         hidden>
                     <div class="mb-3">
-                        <textarea id="editor" class="form-control" name="paragraf" id="paragraf" rows="3" cols="4">{{ $paragraf->paragraf }}</textarea>
+                        <textarea id="editor" class="form-control @error('paragraf') is-invalid @enderror" name="paragraf" id="paragraf"
+                            rows="3" cols="4">{{ $paragraf->paragraf }}</textarea>
+                        @error('paragraf')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Simpan</button>

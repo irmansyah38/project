@@ -45,9 +45,8 @@ class TransaksiController extends Controller
             'qty' => "required",
         ]);
 
-
-
         $request->request->add([
+            'order_id' => $request->user_id . "-" . date('Y-m-d-H:i:s'),
             'total_price' => $request->qty * $harga,
             "status" => 'unpaid',
             'tahun' => $mydate['year'],
@@ -57,16 +56,13 @@ class TransaksiController extends Controller
 
         $transaksi = Transaksi::create($request->all());
 
-
-
-
         // save to barcode table
         Barcode::create([
             "id" => fake()->ean13(),
-            "user_id" => (int)$transaksi->user_id,
-            "order_id" => (int)$transaksi->id, // Perbarui ini dengan nilai yang sesuai
+            "user_id" => $transaksi->user_id,
+            "order_id" => $transaksi->order_id,
             'status' => "unpaid",
-            "jumlah_orang" => (int)$transaksi->qty
+            "jumlah_orang" => $transaksi->qty
         ]);
 
         //SAMPLE REQUEST START HERE
@@ -82,7 +78,7 @@ class TransaksiController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => $transaksi->id,
+                'order_id' => $transaksi->order_id,
                 'gross_amount' => $transaksi->total_price,
             ),
             'customer_details' => array(
@@ -106,14 +102,16 @@ class TransaksiController extends Controller
         $hashed = hash('sha512', $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
             echo $request->transaction_status;
-            if ($request->transaction_status == 'capture') {
+            if ($request->transaction_status == 'capture' or $request->transactionStatus == 'settlement') {
 
-                $transaksi = Transaksi::find($request->order_id);
+                $getIdTransaksi = Transaksi::where("order_id", $request->order_id)->get()->toArray();
+                $transaksi = Transaksi::find($getIdTransaksi[0]["id"]);
                 $transaksi->update([
                     "status" => 'paid'
                 ]);
 
-                $barcode = Barcode::find($request->order_id);
+                $getIdBarcode = Barcode::where('order_id', $request->order_id)->get()->toArray();
+                $barcode = Barcode::find($getIdBarcode[0]['id']);
                 $barcode->update([
                     'status' => 'paid'
                 ]);

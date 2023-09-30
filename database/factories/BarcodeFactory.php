@@ -21,7 +21,7 @@ class BarcodeFactory extends Factory
             'user_id' => fake()->numberBetween(1, 150),
             'jumlah_orang' => fake()->numberBetween(1, 30),
             'status' => 'paid',
-            'order_id' => fake()->randomNumber(9)
+            'order_id' => fake()->unique()->numberBetween(0, 100) . "-" . date('Y-m-d-H:i:s')
         ];
     }
 }
