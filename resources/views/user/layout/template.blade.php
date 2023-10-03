@@ -56,9 +56,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/userJs.js"></script>
-
-
-
+    
 </body>
 
 </html>

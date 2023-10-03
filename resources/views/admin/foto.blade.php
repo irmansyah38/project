@@ -5,7 +5,7 @@
             <div class="container-fluid px-4">
                 <div class="row">
                     <h2>Tambah Foto</h2>
-                    <div class="col-xl-4 mb-3">
+                    <div class="col-md-4 mb-3">
                         @if (session()->has('success'))
                             <div class="alert alert-primary alert-dismissible fade show" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -48,8 +48,8 @@
                         </form>
 
                     </div>
-                    <div class="col-xl-8">
-                        <div class="table-responsive w-75 mx-auto">
+                    <div class="col-md-8">
+                        <div class="table-responsive mx-auto">
                             <h2>Daftar Foto</h2>
                             @if (session()->has('successDelete'))
                                 <div class="alert alert-primary alert-dismissible fade show" role="alert">

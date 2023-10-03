@@ -73,6 +73,7 @@
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $image->kategori }}">
                             <img src="{{ asset('storage/images') . '/' . $image->nama }}" alt="" width="400px"
                                 height="300px">
+                                {{-- <img src="storage/images/{{$image->nama}}" alt="" width="400px" height="300px"> --}}
                             <div class="portfolio-info">
                                 <h4>{{ $image->kategori }}</h4>
                                 <p>{{ $image->kategori }}</p>

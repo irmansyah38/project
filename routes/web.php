@@ -13,6 +13,8 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\FAQ;
 use App\Http\Controllers\HargaController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 
 /*
@@ -32,7 +34,7 @@ Route::get('/', function () {
     return view('user.home', [
         'title' => "Home",
         "data" => Auth::user(),
-        'images' => Foto::latest(),
+        'images' => Foto::all(),
         'paragraf' => Paragraf::all()->toArray(),
         'faqs' => FAQ::all()->toArray()
 
