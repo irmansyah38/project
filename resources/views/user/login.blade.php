@@ -167,9 +167,8 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="form-inline"> <input type="checkbox" name="remember">
-                                    <label for="remember" class="text-muted">Remember me</label>
-                                    <a href="#"
+                                <div class="form-inline"> <input type="checkbox" name="remember" id="remember">
+                                    <label for="remember" class="text-muted">Remember me</label> <a href="/forgot-password"
                                         id="forgot" class="font-weight-bold">Forgot password?</a>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>

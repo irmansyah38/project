@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
-
-
 class LoginContoller extends Controller
 {
     public function index()
@@ -22,6 +20,7 @@ class LoginContoller extends Controller
             'user_name' => ['required'],
             'password' => ['required'],
         ]);
+
 
 
         if (Auth::attempt($credentials)) {
