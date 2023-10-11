@@ -52,12 +52,11 @@ Route::get('/login', [LoginContoller::class, 'index'])->name('login')->middlewar
 Route::post('/login', [LoginContoller::class, 'authenticate']);
 Route::post('/logout', [LoginContoller::class, 'logout']);
 
-// Route::get('/E-Tiket', [EtiketController::class, 'index']);
-// Route::post('/E-Tiket', [EtiketController::class, 'beli']);
 
 Route::get('/E-Tiket', [TransaksiController::class, 'index']);
 Route::post('/E-Tiket', [TransaksiController::class, 'checkout'])->middleware('role:U');
 Route::get('/invoice/{id}', [TransaksiController::class, 'invoice'])->middleware('role:U');
+
 
 // Route::get('/E-Tiket', [TransaksiController::class, 'checkout'])->middleware('role:U');
 
@@ -133,3 +132,9 @@ Route::post('/reset-password', function (Request $request) {
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
+
+Route::get('/cara', function () {
+    return view('user.tata-cara-pembayaran', [
+        'title' => 'tata cara pembayaran'
+    ]);
+});

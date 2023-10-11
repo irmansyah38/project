@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="{{ asset('assets/img/logo1.png') }}" rel="icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -185,7 +186,7 @@
                                     <label for="nomor" class="form-label">Nomor</label>
                                     <input type="text"
                                         class="form-control border border-2 @error('nomor') is-invalid @enderror"
-                                        name="nomor" id="nomor" aria-describedby="helpId" placeholder="08989..."
+                                        name="nomor" id="nomor" aria-describedby="helpId" placeholder=""
                                         value="{{ old('nomor') }}">
                                     @error('nomor')
                                         <div class="invalid-feedback">
@@ -203,6 +204,18 @@
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
+                                    @enderror
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="password_confirmation" class="form-label">Confirm password</label>
+                                    <input type="password" class="form-control border border-2 @error('password_confirmation') is-invalid @enderror" name="password_confirmation"
+                                        id="password_confirmation" placeholder="">
+                                    @error('password_confirmation')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                     @enderror
                                 </div>
 

@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="assets/img/logo.ico">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
-
+    <link href="{{ asset('assets/img/logo1.png') }}" rel="icon">
 </head>
 
 <body class="sb-nav-fixed">

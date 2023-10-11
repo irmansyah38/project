@@ -28,21 +28,29 @@
                     <h2>Informasi</h2>
                     <h3>Curug <span>Cikoneng</span></h3>
                 </div>
+                
+                @if (count($paragraf) > 0)
+                    <div class="row content">
+                        <div class="col-lg-6">
+                            <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
+                                {!! $paragraf[0]['paragraf'] !!}
+                            </div>
+                            <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-4 pt-lg-0">
+                            <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
+                                {!! $paragraf[1]['paragraf'] !!}
+                            </div>
+                        </div>
+                    </div>    
+                
+                @else
 
-                <div class="row content">
-                    <div class="col-lg-6">
-                        <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
-                            {!! $paragraf[0]['paragraf'] !!}
-                        </div>
-                        <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0">
-                        <div style="font-size: 1.25rem; text-align: justify; text-indent: 1rem">
-                            {!! $paragraf[1]['paragraf'] !!}
-                        </div>
-                    </div>
-                </div>
+                    <h3 class="text-center text-muted mt-5">opps... ada error dalam sistem</h3>
+                
+                @endif
+                
             </div>
 
             </div>

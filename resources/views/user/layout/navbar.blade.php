@@ -13,6 +13,7 @@
                 <li><a class="nav-link scrollto " href="https://app.doku.com/retail/merchant/CurugCikonengUMKM"
                         target="__blank">Makanan &
                         Souvenir</a></li>
+                <li><a class="nav-link scrollto" href="/tata-cara-pembayaran">Tata Cara Pembayaran</a></li>
                 @auth
                     <li>
                         <form action="/logout" method="post" class="nav-link scrollto">

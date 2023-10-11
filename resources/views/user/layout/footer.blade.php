@@ -19,11 +19,12 @@
                   <div class="col-lg-4 col-md-6 footer-links">
                       <h4>Useful Links</h4>
                       <ul>
-                          <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                          <li><i class="bx bx-chevron-right"></i> <a href="/E-Tiket">E-Tiket</a></li>
-                          <li><i class="bx bx-chevron-right"></i> <a
+                          <li><i class="bx bx-chevron-right"></i><a href="/">Home</a></li>
+                          <li><i class="bx bx-chevron-right"></i><a href="/E-Tiket">E-Tiket</a></li>
+                          <li><i class="bx bx-chevron-right"></i><a
                                   href="https://app.doku.com/retail/merchant/CurugCikonengUMKM" target="__blank">Makanan
                                   & Souvenir</a></li>
+                          <li><i class="bx bx-chevron-right"></i><a href="/tata-cara-pembayaran">Tata Cara Pembayaran</a></li>
                       </ul>
                   </div>
 
