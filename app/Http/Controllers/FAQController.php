@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FAQ;
-use App\Http\Requests\StoreFAQRequest;
-use App\Http\Requests\UpdateFAQRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,18 +35,11 @@ class FAQController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'question'     => 'required',
-            'answer'   => 'required'
+        $data = $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
         ]);
-
-
-        FAQ::create([
-            'question'     => $request->question,
-            'answer'   => $request->answer
-        ]);
-
-
+        FAQ::create($data);
         return redirect()->route('admin.faq')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
@@ -65,6 +57,12 @@ class FAQController extends Controller
      */
     public function update(Request $request)
     {
+        $data = $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+        FAQ::find($request->id)->update($data);
+        return redirect()->route('admin.faq')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**

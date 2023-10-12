@@ -60,25 +60,31 @@
                         <h2>Daftar Tiket</h2>
                         <div>
                             @auth
-                                <ul style="list-style: none;">
-                                    @foreach ($barcodes as $barcode)
+                                @if ($barcodes->count() > 0)
+                                    <ul style="list-style: none;">
+                                        @foreach ($barcodes as $barcode)
                                         <li>
                                             <div class="mx-auto mb-3 text-center border border-3 rounded ">
                                                 <h5 class="text-white mx-auto rounded p-1" style="background-color: #e43c5c;">
                                                     <strong>SCAN ME
-                                                        <br><span
-                                                            style="font-size: 0.9rem;">{{ $barcode->jumlah_orang }}</span></strong>
+                                                        <br><span style="font-size: 0.9rem;">{{ $barcode->jumlah_orang }}</span></strong>
                                                 </h5>
-
-                                                <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ $barcode->id }}&choe=UTF-8"
-                                                    class="" alt="Barcode" style="margin: 0;">
+                                    
+                                                <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ $barcode->id }}&choe=UTF-8" class=""
+                                                    alt="Barcode" style="margin: 0;">
                                                 <a href="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl={{ $barcode->id }}&choe=UTF-8"
-                                                    download='barcode.jpg' class="btn d-block text-white"
-                                                    style="background-color: #e43c5c;">Click Me For Zoom</a>
+                                                    download='barcode.jpg' class="btn d-block text-white" style="background-color: #e43c5c;">Click Me For
+                                                    Zoom</a>
                                             </div>
                                         </li>
-                                    @endforeach
-                                </ul>
+                                        @endforeach
+                                    </ul>    
+                                @else
+
+                                    <p>Anda tidak punya barcode, silahkan pesan tiket</p>
+                                    
+                                @endif
+                                
                                 {!! $barcodes->withQueryString()->links('pagination::bootstrap-5') !!}
                             @else
                                 <p>Tidak ada barcode karena ada belum login</p>

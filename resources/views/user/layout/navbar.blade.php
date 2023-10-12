@@ -1,5 +1,5 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top @if ($title === 'E-Tiket') header-inner-pages @endif">
+<header id="header" class="fixed-top @if ($title === 'E-Tiket') header-inner-pages @endif @if ($title === 'Tata Cara Pembayaran') header-inner-pages @endif">
     <div class="container d-flex align-items-center justify-content-between">
 
         <h1 class="logo"><a href="/">Curug Cikoneng</a></h1>

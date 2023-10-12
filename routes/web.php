@@ -13,12 +13,14 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\FAQ;
 use App\Http\Controllers\HargaController;
+use App\Http\Controllers\TataCaraController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+
 
 
 /*
@@ -57,6 +59,8 @@ Route::get('/E-Tiket', [TransaksiController::class, 'index']);
 Route::post('/E-Tiket', [TransaksiController::class, 'checkout'])->middleware('role:U');
 Route::get('/invoice/{id}', [TransaksiController::class, 'invoice'])->middleware('role:U');
 
+Route::get('/tata-cara-pembayaran', [TataCaraController::class, 'index']);
+
 
 // Route::get('/E-Tiket', [TransaksiController::class, 'checkout'])->middleware('role:U');
 
@@ -74,10 +78,11 @@ Route::post('/paragraf', [ParagrafController::class, 'update'])->middleware('rol
 Route::get('/paragraf/{id}', [ParagrafController::class, 'edit'])->middleware('role:A');
 
 
-Route::get('/FAQ', [FAQController::class, 'index'])->middleware('role:A');
+Route::get('/FAQ', [FAQController::class, 'index'])->name('admin.faq')->middleware('role:A');
 Route::post('/FAQ', [FAQController::class, 'store'])->middleware('role:A');
-Route::get('/FAQ/{id}', [FAQController::class, 'edit'])->middleware('role:A');
 Route::get('/FAQ/new', [FAQController::class, 'create'])->middleware('role:A');
+Route::post('/FAQ/update', [FAQController::class, 'update'])->middleware('role:A');
+Route::get('/FAQ/{id}', [FAQController::class, 'edit'])->middleware('role:A');
 Route::get('/FAQ/delete/{id}', [FAQController::class, 'destroy'])->middleware('role:A');
 
 Route::get('/harga', [HargaController::class, 'index'])->middleware('role:A');
@@ -132,9 +137,3 @@ Route::post('/reset-password', function (Request $request) {
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
-
-Route::get('/cara', function () {
-    return view('user.tata-cara-pembayaran', [
-        'title' => 'tata cara pembayaran'
-    ]);
-});

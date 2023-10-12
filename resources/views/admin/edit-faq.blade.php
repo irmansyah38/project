@@ -5,8 +5,9 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-2 mb-4">Edit FAQ</h1>
                 <div class="w-100 mx-auto ">
-                    <form action="/FAQ" method="post">
+                    <form action="/FAQ/update" method="post">
                         @csrf
+                        <input type="hidden" name="id" value="{{ $faq->id }}">
                         <div class="mb-3">
                             <label for="question" class="form-label">Question</label>
                             <textarea class="form-control" name="question" id="question" rows="3">{{ $faq->question }}</textarea>
@@ -16,7 +17,7 @@
                             <label for="answer" class="form-label">Answer</label>
                             <textarea id="editor" class="form-control" name="answer" id="answer">{{ $faq->answer }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary">Ubah</button>
                     </form>
                 </div>
             </div>
