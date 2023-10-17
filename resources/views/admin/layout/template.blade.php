@@ -9,8 +9,7 @@
     <meta name="author" content="" />
     <title>Admin Curug Cikoneng</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../assets/css/adminStyle.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.ico">
+    <link href="{{ asset('assets/css/adminStyle.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     <link href="{{ asset('assets/img/logo1.png') }}" rel="icon">
@@ -24,7 +23,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
-    <script src="../assets/js/adminJs.js"></script>
+    <script src="{{ asset('assets/js/adminJs.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\Paragraf::factory(2)->create();
         \App\Models\FAQ::factory(6)->create();
         \App\Models\Harga::factory(1)->create();
-        \App\Models\Transaksi::factory(50)->create();
+        \App\Models\Transaksi::factory(50)->create(); 
+        \App\Models\Contact::factory(10)->create();
 
 
         // \App\Models\User::factory()->create([

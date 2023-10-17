@@ -79,7 +79,7 @@
 
                     @foreach ($images as $image)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $image->kategori }}">
-                            <img src="{{ asset('storage/images') . '/' . $image->nama }}" alt="" width="400px"
+                            <img src="<?= asset('storage/images').'/'.$image->nama ?>" alt="" width="400px"
                                 height="300px">
                             <div class="portfolio-info">
                                 <h4>{{ $image->kategori }}</h4>
@@ -172,31 +172,36 @@
                     </div>
 
                     <div class="col-lg-8 mt-5 mt-lg-0">
+                        
+                        @if (session()->has('success'))
+                                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                    <strong>{{ session('success') }}</strong>
 
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                </div>
+                            @endif
+
+                        <form action="/contact" method="POST" id="contact-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Your Name" required>
+                                        placeholder="Your Name" required autocomplete="off">
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Your Email" required>
+                                        placeholder="Your Email" required autocomplete="off"> 
                                 </div>
                             </div>
                             <div class="form-group mt-3">
                                 <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
+                                    placeholder="Subject" required autocomplete="off">
                             </div>
                             <div class="form-group mt-3">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center mt-3"><button type="submit" class="btn btn-danger">Send Message</button></div>
                         </form>
 
                     </div>

@@ -35,7 +35,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -123,12 +123,12 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
-    }
-  }, true)
+  // on('click', '.navbar .dropdown > a', function(e) {
+  //   if (select('#navbar').classList.contains('navbar-mobile')) {
+  //     e.preventDefault()
+  //     this.nextElementSibling.classList.toggle('dropdown-active')
+  //   }
+  // }, true)
 
   /**
    * Scrool with ofset on links with a class name .scrollto
@@ -178,7 +178,7 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
@@ -214,3 +214,29 @@
 
 })()
 
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Menghentikan pengiriman formulir default
+
+  // Ambil data formulir
+  const formData = new FormData(this);
+
+  fetch("/contact", {
+      method: "POST",
+      body: formData
+  })
+  .then(response => {
+      // Handle the response here
+      if (response.status === 200) {
+        document.getElementById("contact-form").reset();
+          // Jika respons sukses, tampilkan pesan sukses atau lakukan tindakan lain
+      } else {
+          // Jika terjadi kesalahan, tampilkan pesan kesalahan atau lakukan tindakan lain
+
+      }
+  })
+  .catch(error => {
+      // Handle any errors here
+  });
+});
+
+  // document.getElementById("contact-form").reset(); // Mereset formulir

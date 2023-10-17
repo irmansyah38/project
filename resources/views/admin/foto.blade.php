@@ -77,7 +77,7 @@
                                     @foreach ($images as $image)
                                         <tr class="">
                                             <td class="text-center"><img
-                                                    src="{{ asset('storage/images') . '/' . $image['nama'] }}"
+                                                    src="<?= asset('storage/images').'/'.$image->nama ?>"
                                                     style="width: 200px; height: 150px;">
                                             </td>
                                             <td><a href="/foto-curug/{{ $image->id }}"

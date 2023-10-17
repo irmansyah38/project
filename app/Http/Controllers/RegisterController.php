@@ -23,10 +23,26 @@ class RegisterController extends Controller
             'email' => ['required', 'email:dns', 'unique:users'],
             'nomor' => ['numeric', 'required', 'unique:users', 'min_digits:10', 'max_digits:13'],
             'password' => ['required', 'min:8', 'confirmed']
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'user_name.required' => 'Nama pengguna harus diisi.',
+            'user_name.unique' => 'Nama pengguna sudah digunakan.',
+            'email.required' => 'Alamat email harus diisi.',
+            'email.email' => 'Alamat email tidak valid.',
+            'email.unique' => 'Alamat email sudah digunakan.',
+            'nomor.required' => 'Nomor harus diisi.',
+            'nomor.numeric' => 'Nomor harus berupa angka.',
+            'nomor.unique' => 'Nomor sudah digunakan.',
+            'nomor.min_digits' => 'Nomor harus memiliki setidaknya 10 digit.',
+            'nomor.max_digits' => 'Nomor tidak boleh lebih dari 13 digit.',
+            'password.required' => 'Kata sandi harus diisi.',
+            'password.min' => 'Kata sandi harus setidaknya 8 karakter.',
+            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.'
         ]);
+        
         $data['role'] = 'U';
 
         User::create($data);
-        return redirect()->intended('/login');
+        return back()->with('signUpComplete', "Berhasil membuat akun!");
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\ParagrafController;
+use App\Http\Controllers\ContactController;
 use App\Models\Foto;
 use App\Models\Paragraf;
 use App\Http\Controllers\FAQController;
@@ -36,11 +37,10 @@ use Illuminate\Support\Str;
 
 Route::get('/', function () {
 
-
     return view('user.home', [
         'title' => "Home",
         "data" => Auth::user(),
-        'images' => Foto::latest(),
+        'images' => Foto::all(),
         'paragraf' => Paragraf::all()->toArray(),
         'faqs' => FAQ::all()->toArray()
 
@@ -50,7 +50,6 @@ Route::get('/', function () {
 Route::get('/register', [RegisterController::class, 'index'])->middleware("guest");
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginContoller::class, 'index'])->name('login')->middleware("guest");
 Route::post('/login', [LoginContoller::class, 'authenticate']);
 Route::post('/logout', [LoginContoller::class, 'logout']);
 
@@ -62,7 +61,6 @@ Route::get('/invoice/{id}', [TransaksiController::class, 'invoice'])->middleware
 Route::get('/tata-cara-pembayaran', [TataCaraController::class, 'index']);
 
 
-// Route::get('/E-Tiket', [TransaksiController::class, 'checkout'])->middleware('role:U');
 
 
 
@@ -71,7 +69,6 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware('role:A');
 Route::get('/foto-curug', [FotoController::class, 'index'])->middleware('role:A');
 Route::post('/foto-curug', [FotoController::class, 'store'])->middleware('role:A');
 Route::get('/foto-curug/{id}', [FotoController::class, 'destroy'])->middleware('role:A');
-// Route::resource('/foto-curug', FotoController::class);
 
 Route::get('/paragraf', [ParagrafController::class, 'index'])->middleware('role:A');
 Route::post('/paragraf', [ParagrafController::class, 'update'])->middleware('role:A');
@@ -87,6 +84,11 @@ Route::get('/FAQ/delete/{id}', [FAQController::class, 'destroy'])->middleware('r
 
 Route::get('/harga', [HargaController::class, 'index'])->middleware('role:A');
 Route::post('/harga', [HargaController::class, 'update'])->middleware('role:A');
+
+Route::get('/contact', [ContactController::class, 'index'])->middleware('role:A');
+Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->middleware('role:A');
+Route::get('/contact/detail/{id}', [ContactController::class, 'detail'])->middleware('role:A');
 
 
 Route::get('/forgot-password', function () {

@@ -46,6 +46,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         Harga
                     </a>
+                    <a class="nav-link" href="/contact" style="font-size: 0.95rem;">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Pertanyaan Pengunjung
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
