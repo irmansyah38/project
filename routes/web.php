@@ -56,7 +56,6 @@ Route::post('/logout', [LoginContoller::class, 'logout']);
 
 Route::get('/E-Tiket', [TransaksiController::class, 'index']);
 Route::post('/E-Tiket', [TransaksiController::class, 'checkout'])->middleware('role:U');
-Route::get('/invoice/{id}', [TransaksiController::class, 'invoice'])->middleware('role:U');
 
 Route::get('/tata-cara-pembayaran', [TataCaraController::class, 'index']);
 

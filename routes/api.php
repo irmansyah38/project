@@ -24,4 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('/barcode', BarcodeController::class);
 Route::get('/barcode/delete/{id}', [BarcodeController::class, 'destroy']);
 
-Route::post('/midtrans-callback', [TransaksiController::class, 'callback']);
+Route::post('/tripay-callback', [TransaksiController::class, 'callback']);

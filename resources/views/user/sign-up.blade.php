@@ -52,13 +52,7 @@
                         <strong>{{ session('loginError') }}</strong>
                     </div>
                 @endif
-                @if (session()->has('loginError'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
-                        <strong>{{ session('loginError') }}</strong>
-                    </div>
-                @endif
+
                 @csrf
                 <div class="mb-3">
                     <input type="text" class="form-control" name="user_name" aria-describedby="helpId"

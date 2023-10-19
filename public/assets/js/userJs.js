@@ -239,4 +239,24 @@ document.getElementById("contact-form").addEventListener("submit", function(even
   });
 });
 
-  // document.getElementById("contact-form").reset(); // Mereset formulir
+
+ // Menambahkan event listener ke form
+//  document.getElementById('downloadForm').addEventListener('submit', function (e) {
+//     e.preventDefault(); // Mencegah form dari submit
+
+//     // Mengirimkan permintaan POST secara asinkron
+//     fetch(this.action, {
+//         method: 'POST',
+//         body: new FormData(this)
+//     })
+//     .then(response => response.blob())
+//     .then(blob => {
+//         const url = window.URL.createObjectURL(blob);
+//         const a = document.createElement('a');
+//         a.href = url;
+//         a.download = 'downloaded_image.jpg'; // Nama file yang akan diunduh
+//         document.body.appendChild(a);
+//         a.click();
+//         window.URL.revokeObjectURL(url);
+//     });
+// });
