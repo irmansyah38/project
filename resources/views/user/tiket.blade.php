@@ -28,7 +28,7 @@
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
-                                    <strong>{{ session('loginError') }}</strong>
+                                    <strong>{{ session('error') }}</strong>
                                 </div>
                             @endif
                             <p>Harga Tiket <strong>Rp. {{ $harga }}</strong></p>
@@ -116,7 +116,7 @@
                 @foreach ($barcodes as $i => $barcode)
                     document.getElementById("downloadButton{{ $i }}").addEventListener('click', async function() {
                         const imageUrl =
-                            "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ $barcode->id }}&choe=UTF-8"; // Ganti URL_GAMBAR dengan URL gambar yang ingin Anda unduh
+                            "https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl={{ $barcode->id }}&choe=UTF-8"; // Ganti URL_GAMBAR dengan URL gambar yang ingin Anda unduh
 
                         try {
                             const response = await fetch(imageUrl);
@@ -127,7 +127,7 @@
                                 const a = document.createElement('a');
                                 a.href = url;
                                 a.download =
-                                    'gambar{{ $i }}.jpg'; // Ganti 'gambar{{ $i }}.jpg' dengan nama file yang Anda inginkan
+                                    'tiket-masuk-curug-cikoneng{{ $i }}.jpg'; // Ganti 'gambar{{ $i }}.jpg' dengan nama file yang Anda inginkan
                                 a.style.display = 'none';
                                 document.body.appendChild(a);
 

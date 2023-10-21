@@ -39,7 +39,7 @@ class RegisterController extends Controller
             'password.min' => 'Kata sandi harus setidaknya 8 karakter.',
             'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.'
         ]);
-        
+
         $data['role'] = 'U';
 
         User::create($data);

@@ -24,7 +24,7 @@
                 @else
                     {{-- <li><a class="nav-link scrollto" href="/login">Login</a></li>
                     <li><a class="nav-link scrollto" href="/register">Sign Up</a></li> --}}
-                    <li><a class="nav-link scrollto" href="/register">Masuk</a></li>
+                    <li><a class="nav-link scrollto" href="/login">Masuk</a></li>
 
                 @endauth
             </ul>
