@@ -26,7 +26,7 @@
 
                 <div class="section-title">
                     <h2>Informasi</h2>
-                    <h3>Curug <span>Cikoneng</span></h3>
+                    <h3>Rumah <span>Curug Cikoneng</span></h3>
                 </div>
                 
                 @if (count($paragraf) > 0)
@@ -62,7 +62,7 @@
 
                 <div class="section-title">
                     <h2>Foto</h2>
-                    <h3>Foto <span>Curug Cikoneng</span></h3>
+                    <h3>Foto <span>Rumah Curug Cikoneng</span></h3>
                 </div>
 
                 <div class="row">
